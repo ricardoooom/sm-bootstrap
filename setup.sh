@@ -61,6 +61,11 @@ else
     echo "[INFO] 节点身份已确认为: $CURRENT_HOST，本地路由已存在，跳过注入。"
 fi
 
+# 固定语言
+echo "en_US.UTF-8 UTF-8" | tee /etc/locale.gen > /dev/null
+locale-gen
+update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
 # ==========================================
 # 阶段一：基础设施与底层防线（Root 特权域）
 # ==========================================
